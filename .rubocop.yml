@@ -1,0 +1,20 @@
+AllCops:
+  TargetRubyVersion: 3.1
+  Exclude:
+    #  Overwrite default Exclude
+    - 'node_modules/**/*'
+    - 'tmp/**/*'
+    - 'vendor/**/*'
+    - '.git/**/*'
+    - 'bin/*'
+    - 'rubocops/**/*'
+
+Style:
+  Enabled: false
+
+Layout:
+  Enabled: false
+
+inherit_gem:
+  # https://github.com/standardrb/standard/blob/main/config/base.yml
+  standard: config/base.yml
