@@ -1,0 +1,6 @@
+# gemfiles/rubocop.gemfile
+source "https://rubygems.org" do
+  gem "rubocop-rspec"
+  gem "standard", "~> 1.28"
+  gem "standard-rails"
+end
