@@ -1,0 +1,31 @@
+name: rubocop_ci
+
+on: [push]
+
+jobs:
+  rubocop_check:
+    name: Run rubocop
+    runs-on: ubuntu-latest
+    continue-on-error: true
+    strategy:
+      matrix:
+        ruby-version: ['3.1']
+    env:
+      RAILS_ENV: test
+    timeout-minutes: 3
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Set up Ruby
+        uses: ruby/setup-ruby@v1
+        with:
+          ruby-version: ${{ matrix.ruby-version }}
+
+      - name: Make rubocop script executable
+        run: chmod +x ./bin/rubocop
+
+      - name: Run rubocop Script
+        run: ./bin/rubocop $@
+
